@@ -23,13 +23,13 @@ public class CountryPickerViewController: UITableViewController {
         return dataSource.showOnlyPreferredSection
     }
     
-    weak var countryPickerView: CountryPickerView! {
+    public weak var countryPickerView: CountryPickerView! {
         didSet {
             dataSource = CountryPickerViewDataSourceInternal(view: countryPickerView)
         }
     }
     
-    var dataSource: CountryPickerViewDataSourceInternal!
+    public var dataSource: CountryPickerViewDataSourceInternal!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -277,7 +277,7 @@ class CountryTableViewCell: UITableViewCell {
 
 // MARK:- An internal implementation of the CountryPickerViewDataSource.
 // Returns default options where necessary if the data source is not set.
-class CountryPickerViewDataSourceInternal: CountryPickerViewDataSource {
+public class CountryPickerViewDataSourceInternal: CountryPickerViewDataSource {
     
     private unowned var view: CountryPickerView
     
