@@ -25,6 +25,12 @@ public struct Country {
         return UIImage(named: "CountryPickerView.bundle/Images/\(code.uppercased())",
             in: Bundle(for: CountryPickerView.self), compatibleWith: nil)!
     }
+    
+    public init(name: String, code: String, phoneCode: String){
+        self.name = name;
+        self.code = code;
+        self.phoneCode = phoneCode;
+    }
 }
 
 public func ==(lhs: Country, rhs: Country) -> Bool {
