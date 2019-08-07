@@ -79,8 +79,8 @@ public class CountryPickerView: NibView {
     weak public var delegate: CountryPickerViewDelegate?
     weak public var hostViewController: UIViewController?
     
-    fileprivate var _selectedCountry: Country?
-    internal(set) public var selectedCountry: Country {
+    var _selectedCountry: Country?
+    public var selectedCountry: Country {
         get {
             return _selectedCountry
                 ?? countries.first(where: { $0.code == Locale.current.regionCode })
@@ -107,7 +107,7 @@ public class CountryPickerView: NibView {
         countryDetailsLabel.font = font
         countryDetailsLabel.textColor = textColor
         if showPhoneCodeInView && showCountryCodeInView {
-            countryDetailsLabel.text = "(\(selectedCountry.code)) \(selectedCountry.phoneCode)"
+            countryDetailsLabel.text = "\(selectedCountry.code) \(selectedCountry.phoneCode)"
             return
         }
         

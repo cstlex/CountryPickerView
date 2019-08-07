@@ -11,25 +11,25 @@ import UIKit
 public class CountryPickerViewController: UITableViewController {
 
     public var searchController: UISearchController?
-    fileprivate var searchResults = [Country]()
-    fileprivate var isSearchMode = false
-    fileprivate var sectionsTitles = [String]()
-    fileprivate var countries = [String: [Country]]()
-    fileprivate var hasPreferredSection: Bool {
+    var searchResults = [Country]()
+    var isSearchMode = false
+    var sectionsTitles = [String]()
+    var countries = [String: [Country]]()
+    var hasPreferredSection: Bool {
         return dataSource.preferredCountriesSectionTitle != nil &&
             dataSource.preferredCountries.count > 0
     }
-    fileprivate var showOnlyPreferredSection: Bool {
+    var showOnlyPreferredSection: Bool {
         return dataSource.showOnlyPreferredSection
     }
     
-    internal weak var countryPickerView: CountryPickerView! {
+    weak var countryPickerView: CountryPickerView! {
         didSet {
             dataSource = CountryPickerViewDataSourceInternal(view: countryPickerView)
         }
     }
     
-    fileprivate var dataSource: CountryPickerViewDataSourceInternal!
+    var dataSource: CountryPickerViewDataSourceInternal!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
